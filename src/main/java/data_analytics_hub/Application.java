@@ -1,6 +1,5 @@
-package com.example.data_analytics_hub;
+package data_analytics_hub;
 
-import com.example.data_analytics_hub.functions.Encryption;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;

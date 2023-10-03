@@ -1,4 +1,4 @@
-package com.example.data_analytics_hub.functions;
+package data_analytics_hub.functions;
 
 import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
@@ -9,7 +9,20 @@ import java.util.Base64;
 
 public class Encryption implements IEncryption {
 
-    public static String AESEncrypt(String str) {
+    private static Encryption instance = null;
+
+    public Encryption() {
+    }
+
+    public static Encryption getInstance() {
+        if (instance == null) {
+            instance = new Encryption();
+        }
+        return instance;
+    }
+
+    @Override
+    public String AESEncrypt(String str) {
         byte[] decodedKey = java.util.Base64.getDecoder().decode(key);
         SecretKey originalKey = new SecretKeySpec(Arrays.copyOf(decodedKey, 16), "AES");
 
@@ -23,7 +36,8 @@ public class Encryption implements IEncryption {
         }
     }
 
-    public static String AESDecrypt(String str) {
+    @Override
+    public String AESDecrypt(String str) {
         byte[] decodedKey = java.util.Base64.getDecoder().decode(key);
         SecretKey originalKey = new SecretKeySpec(Arrays.copyOf(decodedKey, 16), "AES");
 

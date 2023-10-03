@@ -1,4 +1,4 @@
-package com.example.data_analytics_hub.controllers;
+package data_analytics_hub.controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
