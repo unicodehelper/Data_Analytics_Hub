@@ -15,7 +15,7 @@ public class Application extends javafx.application.Application {
         double width = 600;
         double height = 400;
 
-        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("view/hello-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("view/main-menu.fxml"));
         Rectangle2D screenBounds = javafx.stage.Screen.getPrimary().getVisualBounds();
         staticStage = stage;
 
@@ -36,6 +36,10 @@ public class Application extends javafx.application.Application {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public static void changeTitle(String title) {
+        staticStage.setTitle(title);
     }
 
     public static void main(String[] args) {
