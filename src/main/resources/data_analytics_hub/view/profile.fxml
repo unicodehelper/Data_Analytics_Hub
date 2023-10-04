@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.*?>
+
+<Pane prefHeight="450.0" prefWidth="460.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="data_analytics_hub.controllers.ProfileController">
+   <Label focusTraversable="true" layoutX="187.0" layoutY="23.0" text="My Profile">
+      <font>
+         <Font name="Arial Bold" size="18.0"/>
+      </font>
+   </Label>
+   <Label layoutX="62.0" layoutY="91.0" text="Username">
+      <font>
+         <Font name="Arial" size="14.0"/>
+      </font>
+   </Label>
+   <TextField fx:id="txtUsername" layoutX="62.0" layoutY="117.0" prefHeight="30.0" prefWidth="150.0">
+      <font>
+         <Font name="Arial" size="14.0"/>
+      </font>
+   </TextField>
+   <TextField fx:id="txtPassword" layoutX="62.0" layoutY="190.0" prefHeight="30.0" prefWidth="150.0">
+      <font>
+         <Font name="Arial" size="14.0"/>
+      </font>
+   </TextField>
+   <Label layoutX="62.0" layoutY="164.0" text="Password">
+      <font>
+         <Font name="Arial" size="14.0"/>
+      </font>
+   </Label>
+   <TextField fx:id="txtFirstName" layoutX="249.0" layoutY="117.0" prefHeight="30.0" prefWidth="150.0">
+      <font>
+         <Font name="Arial" size="14.0"/>
+      </font>
+   </TextField>
+   <Label layoutX="249.0" layoutY="91.0" text="First name">
+      <font>
+         <Font name="Arial" size="14.0"/>
+      </font>
+   </Label>
+   <TextField fx:id="txtLastName" layoutX="249.0" layoutY="190.0" prefHeight="30.0" prefWidth="150.0">
+      <font>
+         <Font name="Arial" size="14.0"/>
+      </font>
+   </TextField>
+   <Label layoutX="249.0" layoutY="164.0" text="Last name">
+      <font>
+         <Font name="Arial" size="14.0"/>
+      </font>
+   </Label>
+   <Button fx:id="btnUpdate" layoutX="140.0" layoutY="372.0" mnemonicParsing="false" onMouseClicked="#btnUpdateClicked"
+           prefHeight="30.0" prefWidth="180.0" text="Update Profile">
+      <font>
+         <Font name="Arial" size="14.0"/>
+      </font>
+   </Button>
+</Pane>

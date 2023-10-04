@@ -1,6 +1,7 @@
 package data_analytics_hub.controllers;
 
 import data_analytics_hub.Application;
+import data_analytics_hub.tools.FxTools;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.RadioButton;
@@ -25,22 +26,11 @@ public class RegisterController {
 
     @FXML
     void pwdToggleClicked() {
-        if (pwdToggle.isSelected()) {
-            pwdToggle.setText("Hide");
-            txtPasswordView.setText(txtPassword.getText());
-            txtPasswordView.setVisible(true);
-            txtPassword.setVisible(false);
-        } else {
-            pwdToggle.setText("Show");
-            txtPassword.setText(txtPasswordView.getText());
-            txtPasswordView.setVisible(false);
-            txtPassword.setVisible(true);
-        }
+        FxTools.togglePwdVisible(txtPassword, txtPasswordView, pwdToggle);
     }
 
     @FXML
     void btnBackClicked() {
-        Application.changeScene("main-menu");
-        Application.changeTitle("Data Analytics Hub");
+        Application.changeScene("main-menu", "Data Analytics Hub");
     }
 }

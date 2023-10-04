@@ -6,14 +6,12 @@ import javafx.fxml.FXML;
 public class MainMenuController {
     @FXML
     void btnRegisterClicked() {
-        Application.changeScene("register");
-        Application.changeTitle("Register");
+        Application.changeScene("register", "Register");
     }
 
     @FXML
     void btnLoginClicked() {
-        Application.changeScene("login");
-        Application.changeTitle("Login");
+        Application.changeScene("login", "Login");
     }
 
     @FXML

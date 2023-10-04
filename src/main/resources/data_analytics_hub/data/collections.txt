@@ -1,1 +1,1 @@
-collectionId,postsIds
+1|123

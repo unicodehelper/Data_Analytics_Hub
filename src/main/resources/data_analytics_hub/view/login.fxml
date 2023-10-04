@@ -4,20 +4,20 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.*?>
 
-<Pane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+<Pane prefHeight="450.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="data_analytics_hub.controllers.LoginController">
     <Label layoutX="235.0" layoutY="40.0" text="Login Page">
         <font>
           <Font name="Arial Bold" size="24.0"/>
         </font>
     </Label>
-    <Button layoutX="46.0" layoutY="41.0" mnemonicParsing="false" onMouseClicked="#btnBackClicked" prefHeight="25.0"
+    <Button focusTraversable="false" layoutX="46.0" layoutY="41.0" mnemonicParsing="false" onMouseClicked="#btnBackClicked" prefHeight="25.0"
             prefWidth="70.0" text="Back">
         <font>
           <Font name="Arial" size="14.0"/>
         </font>
     </Button>
-    <Button layoutX="200.0" layoutY="311.0" mnemonicParsing="false" onMouseClicked="#btnLoginClicked"
+    <Button focusTraversable="false" layoutX="200.0" layoutY="311.0" mnemonicParsing="false" onMouseClicked="#btnLoginClicked"
             prefHeight="30.0" prefWidth="200.0" text="Login">
         <font>
           <Font name="Arial" size="14.0"/>
@@ -33,23 +33,23 @@
           <Font size="14.0"/>
         </font>
     </Label>
-    <PasswordField fx:id="txtPassword" layoutX="200.0" layoutY="240.0" prefHeight="30.0" prefWidth="200.0"
+    <PasswordField focusTraversable="false" fx:id="txtPassword" layoutX="200.0" layoutY="240.0" prefHeight="30.0" prefWidth="200.0"
                    promptText="Enter your password">
         <font>
           <Font name="Arial" size="14.0"/>
         </font>
     </PasswordField>
-    <TextField fx:id="txtPasswordView" layoutX="200.0" layoutY="240.0" prefHeight="30.0" prefWidth="200.0" visible="false"
+    <TextField focusTraversable="false" fx:id="txtPasswordView" layoutX="200.0" layoutY="240.0" prefHeight="30.0" prefWidth="200.0" visible="false"
                promptText="Enter your password">
         <font>
             <Font name="Arial" size="14.0"/>
         </font>
     </TextField>
-    <TextField fx:id="txtUsername" layoutX="200.0" layoutY="156.0" prefHeight="30.0" prefWidth="200.0"
+    <TextField focusTraversable="false" fx:id="txtUsername" layoutX="200.0" layoutY="156.0" prefHeight="30.0" prefWidth="200.0"
                promptText="Enter your username">
         <font>
           <Font name="Arial" size="14.0"/>
         </font>
     </TextField>
-    <RadioButton fx:id="pwdToggle" layoutX="413.0" layoutY="247.0" mnemonicParsing="false" text="Show" onMouseClicked="#pwdToggleClicked"/>
+    <RadioButton focusTraversable="false" fx:id="pwdToggle" layoutX="413.0" layoutY="247.0" mnemonicParsing="false" text="Show" onMouseClicked="#pwdToggleClicked"/>
 </Pane>

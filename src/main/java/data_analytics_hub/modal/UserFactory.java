@@ -11,7 +11,7 @@ public class UserFactory {
     }
 
     public static User createUser(String username, String password, String firstName, String lastName, String email) {
-        String newUserId = Session.users.get(Session.users.size() - 1).getUserId() + 1;
+        int newUserId = Session.users.size() + 1;
         password = encryption.AESEncrypt(password);
         return new User(newUserId, username, password, firstName, lastName, email);
     }

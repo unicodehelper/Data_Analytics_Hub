@@ -4,9 +4,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.*?>
 
-<Pane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+<Pane prefHeight="450.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="data_analytics_hub.controllers.RegisterController">
-    <Label layoutX="220.0" layoutY="19.0" text="Register Page">
+    <Label focusTraversable="true" layoutX="220.0" layoutY="19.0" text="Register Page">
         <font>
             <Font name="Arial Bold" size="24.0"/>
         </font>

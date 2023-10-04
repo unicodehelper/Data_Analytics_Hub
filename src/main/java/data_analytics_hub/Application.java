@@ -1,5 +1,6 @@
 package data_analytics_hub;
 
+import data_analytics_hub.modal.UserFactory;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
@@ -13,7 +14,7 @@ public class Application extends javafx.application.Application {
     @Override
     public void start(Stage stage) throws IOException {
         double width = 600;
-        double height = 400;
+        double height = 450;
 
         FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("view/main-menu.fxml"));
         Rectangle2D screenBounds = javafx.stage.Screen.getPrimary().getVisualBounds();
@@ -38,11 +39,14 @@ public class Application extends javafx.application.Application {
         }
     }
 
-    public static void changeTitle(String title) {
+    public static void changeScene(String fxmlName, String title) {
         staticStage.setTitle(title);
+        changeScene(fxmlName);
     }
 
     public static void main(String[] args) {
+        Session.execute();
+//        Session.currentUser = UserFactory.getUser("tester", "test123");
         launch();
     }
 }

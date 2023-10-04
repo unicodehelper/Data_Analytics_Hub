@@ -9,6 +9,7 @@ public class TxtFileExecutor implements IFileExecutor{
     private static final String filePath = "src\\main\\resources\\data_analytics_hub\\data\\";
     public static final String USERS = "users";
     public static final String POSTS = "posts";
+    public static final String COLLECTIONS = "collections";
 
     @Override
     public ArrayList<String> readFile(String path){

@@ -1,35 +1,38 @@
 package data_analytics_hub.modal;
 
+import data_analytics_hub.Session;
+import data_analytics_hub.dao.CollectionDAO;
+
 public class User {
 
-    protected String userId;
+    protected int userId;
     protected String username;
     protected String password;
     protected String firstName;
     protected String lastName;
     protected String email;
-    protected String collectionId;
     protected Collection collection;
+    protected CollectionDAO collectionDAO = new CollectionDAO();
 
     public User() {
         //do nothing
     }
 
-    public User(String userId, String username, String password, String firstName, String lastName, String email) {
+    public User(int userId, String username, String password, String firstName, String lastName, String email) {
         this.userId = userId;
         this.username = username;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-        this.collectionId = userId;
+        this.collection = collectionDAO.getCollectionById(userId);
     }
 
-    public String getUserId() {
+    public int getUserId() {
         return userId;
     }
 
-    public void setUserId(String userId) {
+    public void setUserId(int userId) {
         this.userId = userId;
     }
 
@@ -73,19 +76,22 @@ public class User {
         this.email = email;
     }
 
-    public String getCollectionId() {
-        return collectionId;
-    }
-
-    public void setCollectionId(String collectionId) {
-        this.collectionId = collectionId;
-    }
-
     public Collection getCollection() {
         return collection;
     }
 
     public void setCollection(Collection collection) {
         this.collection = collection;
+    }
+
+    public String[] toStringArray() {
+        String[] user = new String[6];
+        user[0] = String.valueOf(userId);
+        user[1] = username;
+        user[2] = password;
+        user[3] = firstName;
+        user[4] = lastName;
+        user[5] = email;
+        return user;
     }
 }

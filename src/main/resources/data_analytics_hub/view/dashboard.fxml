@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<Pane prefHeight="450.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="data_analytics_hub.controllers.DashboardController">
+   <VBox prefHeight="450.0" prefWidth="140.0" spacing="15.0">
+      <Pane prefHeight="104.0" prefWidth="140.0">
+         <Label layoutX="16.0" layoutY="22.0" text="User Dashboard">
+            <font>
+               <Font name="Arial Bold" size="14.0"/>
+            </font>
+         </Label>
+         <Label layoutX="16.0" layoutY="44.0" text="Welcome,">
+            <font>
+               <Font name="Arial" size="12.0"/>
+            </font>
+         </Label>
+         <Label fx:id="lblUsername" layoutX="16.0" layoutY="61.0" text="username">
+            <font>
+               <Font name="Arial" size="12.0"/>
+            </font>
+         </Label>
+      </Pane>
+      <Button focusTraversable="false" mnemonicParsing="false" onMouseClicked="#btnProfileClicked" prefHeight="30.0"
+              prefWidth="140.0" text="Profile"/>
+      <Button focusTraversable="false" mnemonicParsing="false" onMouseClicked="#btnCollectionClicked"
+              prefHeight="30.0" prefWidth="140.0" text="My Collections"/>
+      <Button disable="true" focusTraversable="false" mnemonicParsing="false" prefHeight="30.0" prefWidth="140.0"
+              text="VIP Posts Analytics"/>
+      <Pane prefHeight="143.0" prefWidth="140.0"/>
+      <Button focusTraversable="false" mnemonicParsing="false" onMouseClicked="#btnLogoutClicked" prefHeight="30.0"
+              prefWidth="140.0" text="Logout"/>
+   </VBox>
+   <Pane fx:id="dashboardPane" layoutX="140.0" prefHeight="450.0" prefWidth="460.0"/>
+</Pane>

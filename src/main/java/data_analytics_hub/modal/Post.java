@@ -68,4 +68,15 @@ public class Post {
     public void setDatetime(String datetime) {
         this.datetime = datetime;
     }
+
+    public String[] toStringArray(){
+        String[] post = new String[6];
+        post[0] = this.postId;
+        post[1] = this.content;
+        post[2] = this.author;
+        post[3] = Integer.toString(this.likes);
+        post[4] = Integer.toString(this.shares);
+        post[5] = this.datetime;
+        return post;
+    }
 }
