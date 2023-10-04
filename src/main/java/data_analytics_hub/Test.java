@@ -1,6 +1,7 @@
 package data_analytics_hub;
 
 import data_analytics_hub.functions.TxtFileExecutor;
+import data_analytics_hub.functions.Validator;
 import data_analytics_hub.modal.User;
 import data_analytics_hub.modal.UserFactory;
 
@@ -21,7 +22,13 @@ public class Test {
         txtFileExecutor.writeArrToFile("users", user.toStringArray());
     }
 
+    private static void runEmailTest(){
+        String email = "testing123@gmail.com";
+        boolean isEmailValid = Validator.validateEmail(email);
+        System.out.println(isEmailValid);
+    }
+
     public static void main(String[] args) {
-        runUserTest();
+        runEmailTest();
     }
 }

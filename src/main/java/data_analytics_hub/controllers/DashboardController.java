@@ -2,9 +2,9 @@ package data_analytics_hub.controllers;
 
 import data_analytics_hub.Application;
 import data_analytics_hub.Session;
+import data_analytics_hub.tools.AlertTools;
 import data_analytics_hub.tools.FxTools;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 
@@ -51,12 +51,7 @@ public class DashboardController {
 
     @FXML
     void btnLogoutClicked() {
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Logout");
-        alert.setHeaderText("Are you sure you want to logout?");
-        alert.setContentText("Click OK to confirm");
-        alert.showAndWait();
-        if (alert.getResult().getText().equals("OK")) {
+        if (AlertTools.handleLogout()) {
             Session.currentUser = null;
             Application.changeScene("main-menu", "Data Analytics Hub");
         }

@@ -44,7 +44,10 @@ public class CollectionDAO extends SuperDAO<Collection> implements DAO<Collectio
                 return collection;
             }
         }
-        return new Collection();
+        //create new collection if not found
+        Collection collection = new Collection(id);
+        save(collection);
+        return collection;
     }
 
     @Override
@@ -64,7 +67,7 @@ public class CollectionDAO extends SuperDAO<Collection> implements DAO<Collectio
 
     @Override
     public void save(Collection collection) {
-
+        Session.collections.add(collection);
     }
 
     @Override

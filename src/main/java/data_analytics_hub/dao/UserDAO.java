@@ -26,6 +26,15 @@ public class UserDAO extends SuperDAO<User> implements DAO<User>{
         Session.txtFileExecutor.rewriteFile(TxtFileExecutor.USERS, usersContent);
     }
 
+    public boolean isUsernameExist(String username) {
+        for (User user : Session.users) {
+            if (user.getUsername().equals(username)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     @Override
     public Optional<User> get(int id) {
         for (User user : Session.users) {

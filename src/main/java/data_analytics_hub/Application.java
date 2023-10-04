@@ -27,6 +27,7 @@ public class Application extends javafx.application.Application {
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
+        staticStage.setOnCloseRequest(e -> Session.save());  //handle stage close
     }
 
     public static void changeScene(String fxmlName) {
@@ -46,7 +47,6 @@ public class Application extends javafx.application.Application {
 
     public static void main(String[] args) {
         Session.execute();
-//        Session.currentUser = UserFactory.getUser("tester", "test123");
         launch();
     }
 }
