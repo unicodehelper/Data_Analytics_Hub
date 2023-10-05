@@ -6,8 +6,9 @@ import data_analytics_hub.modal.Post;
 
 import java.util.ArrayList;
 import java.util.Objects;
+import java.util.Optional;
 
-public class PostDAO extends SuperDAO<Post> {
+public class PostDAO extends SuperDAO<Post> implements DAO<Post> {
 
     public ArrayList<Post> initData() {
         ArrayList<Post> posts = new ArrayList<>();
@@ -36,5 +37,44 @@ public class PostDAO extends SuperDAO<Post> {
             }
         }
         return new Post();
+    }
+
+    @Override
+    public Optional<Post> get(int id) {
+        for (Post post : Session.posts) {
+            if (Integer.valueOf(post.getPostId()).equals(id)) {
+                return Optional.of(post);
+            }
+        }
+        return Optional.empty();
+    }
+
+    public Optional<Post> get(String id) {
+        for (Post post : Session.posts) {
+            if (post.getPostId().equals(id)) {
+                return Optional.of(post);
+            }
+        }
+        return Optional.empty();
+    }
+
+    @Override
+    public ArrayList<Post> getAll() {
+        return Session.posts;
+    }
+
+    @Override
+    public void save(Post post) {
+        Session.posts.add(post);
+    }
+
+    @Override
+    public void update(Post post, String[] params) {
+        //do nothing
+    }
+
+    @Override
+    public void delete(Post post) {
+        Session.posts.remove(post);
     }
 }

@@ -53,6 +53,29 @@ public class Collection {
         this.postsList = postsList;
     }
 
+    public void addPost(Post post) {
+        postDAO.save(post);
+        this.postsList.add(post);
+        this.postIds.add(post.getPostId());
+    }
+
+    public void removePost(String postId) {
+        for (Post post : this.postsList) {
+            if (post.getPostId().equals(postId)) {
+                postDAO.delete(post);
+                this.postsList.remove(post);
+                this.postIds.remove(postId);
+                break;
+            }
+        }
+    }
+
+    public void removePost(Post post) {
+        postDAO.delete(post);
+        this.postsList.remove(post);
+        this.postIds.remove(post.getPostId());
+    }
+
     public String[] toStringArray(){
         String[] collection = new String[2];
         collection[0] = Integer.toString(this.collectionId);

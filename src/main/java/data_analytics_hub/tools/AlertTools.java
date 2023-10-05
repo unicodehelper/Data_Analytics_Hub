@@ -55,6 +55,18 @@ public class AlertTools {
         showAlert("Search Value Error", "Please enter a valid search value", Alert.AlertType.ERROR);
     }
 
+    public static void handleNotIntegerError() {
+        showAlert("Not Integer Error", "Please enter a valid number", Alert.AlertType.ERROR);
+    }
+
+    public static void handleAddPostSuccess() {
+        showAlert("Add Post Success", "Post successfully added", Alert.AlertType.INFORMATION);
+    }
+
+    public static void handlePostIdExists() {
+        showAlert("Post ID Error", "Post ID already exists", Alert.AlertType.ERROR);
+    }
+
     public static void showAlert(String title, String message, Alert.AlertType type) {
         alert = new Alert(type);
         alert.setTitle(title);

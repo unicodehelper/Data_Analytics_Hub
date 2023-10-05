@@ -72,7 +72,7 @@ public class CollectionDAO extends SuperDAO<Collection> implements DAO<Collectio
 
     @Override
     public void update(Collection collection, String[] params) {
-
+        // do nothing
     }
 
     @Override

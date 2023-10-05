@@ -22,21 +22,30 @@ public class Session {
     public static ArrayList<Collection> collections = null;
 
     //file executor
-    public static final TxtFileExecutor txtFileExecutor = new TxtFileExecutor();
+    public static TxtFileExecutor txtFileExecutor = null;
 
     //DAO
-    public static final UserDAO userDAO = new UserDAO();
-    public static final CollectionDAO collectionDAO = new CollectionDAO();
-    public static final PostDAO postDAO = new PostDAO();
+    public static UserDAO userDAO = null;
+    public static CollectionDAO collectionDAO = null;
+    public static PostDAO postDAO = new PostDAO();
 
     //Dashboard Pane
     public static Pane dashboardPane = null;
 
     public static void execute() {
+        init();
         //handle init all data with DAO
         posts = postDAO.initData();
         collections = collectionDAO.initData();
         users = userDAO.initData();
+    }
+
+    private static void init() {
+        //handle init all needed obj
+        txtFileExecutor = new TxtFileExecutor();
+        userDAO = new UserDAO();
+        collectionDAO = new CollectionDAO();
+        postDAO = new PostDAO();
     }
 
     public static void save() {
