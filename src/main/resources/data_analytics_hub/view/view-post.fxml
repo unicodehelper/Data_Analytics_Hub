@@ -1,17 +1,93 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?xml version="1.0" encoding="UTF-8"?>
-
-
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.*?>
 
 <Pane prefHeight="450.0" prefWidth="460.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="data_analytics_hub.controllers.ViewPostController">
-    <Label layoutX="166.0" layoutY="22.0" text="Post Details">
+    <Label focusTraversable="true" layoutX="166.0" layoutY="22.0" text="Post Details">
         <font>
             <Font name="Arial Bold" size="18.0"/>
         </font>
     </Label>
+    <Label layoutX="90.0" layoutY="73.0" text="Post ID">
+        <font>
+          <Font name="Arial" size="14.0"/>
+        </font>
+    </Label>
+    <TextField fx:id="txtPostID" editable="false" layoutX="165.0" layoutY="66.0" prefHeight="30.0" prefWidth="180.0">
+        <font>
+          <Font name="Arial" size="14.0"/>
+        </font>
+    </TextField>
+    <Label layoutX="90.0" layoutY="110.0" text="Content">
+        <font>
+          <Font name="Arial" size="14.0"/>
+        </font>
+    </Label>
+    <TextArea fx:id="txtContent" editable="false" layoutX="165.0" layoutY="110.0" maxHeight="75.0" maxWidth="180.0"
+              minHeight="50.0" minWidth="180.0" prefHeight="75.0" prefWidth="180.0">
+        <font>
+          <Font name="Arial" size="14.0"/>
+        </font>
+    </TextArea>
+    <TextField fx:id="txtAuthor" editable="false" layoutX="165.0" layoutY="202.0" prefHeight="30.0" prefWidth="180.0">
+        <font>
+          <Font name="Arial" size="14.0"/>
+        </font>
+    </TextField>
+    <Label layoutX="90.0" layoutY="209.0" text="Author">
+        <font>
+          <Font name="Arial" size="14.0"/>
+        </font>
+    </Label>
+    <TextField fx:id="txtLikes" editable="false" layoutX="165.0" layoutY="242.0" prefHeight="30.0" prefWidth="180.0">
+        <font>
+          <Font name="Arial" size="14.0"/>
+        </font>
+    </TextField>
+    <Label layoutX="90.0" layoutY="249.0" text="Likes">
+        <font>
+          <Font name="Arial" size="14.0"/>
+        </font>
+    </Label>
+    <Label layoutX="90.0" layoutY="289.0" text="Shares">
+        <font>
+          <Font name="Arial" size="14.0"/>
+        </font>
+    </Label>
+    <TextField fx:id="txtShares" editable="false" layoutX="165.0" layoutY="282.0" prefHeight="30.0" prefWidth="180.0">
+        <font>
+          <Font name="Arial" size="14.0"/>
+        </font>
+    </TextField>
+    <Label layoutX="90.0" layoutY="331.0" text="Datetime">
+        <font>
+          <Font name="Arial" size="14.0"/>
+        </font>
+    </Label>
+    <TextField fx:id="txtDatetime" editable="false" layoutX="165.0" layoutY="324.0" prefHeight="30.0" prefWidth="180.0">
+        <font>
+          <Font name="Arial" size="14.0"/>
+        </font>
+    </TextField>
+    <Button layoutX="385.0" layoutY="20.0" mnemonicParsing="false" onMouseClicked="#btnCloseClicked" prefHeight="30.0"
+            prefWidth="56.0" text="Close">
+        <font>
+          <Font name="Arial" size="14.0"/>
+        </font>
+    </Button>
+    <Button layoutX="90.0" layoutY="384.0" mnemonicParsing="false" onMouseClicked="#btnExportClicked" prefHeight="30.0"
+            prefWidth="120.0" text="Export Post">
+        <font>
+          <Font name="Arial" size="14.0"/>
+        </font>
+    </Button>
+    <Button layoutX="255.0" layoutY="384.0" mnemonicParsing="false" onMouseClicked="#btnDeleteClicked" prefHeight="30.0"
+            prefWidth="120.0" text="Delete Post">
+        <font>
+          <Font name="Arial" size="14.0"/>
+        </font>
+    </Button>
 </Pane>

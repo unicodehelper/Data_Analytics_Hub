@@ -18,6 +18,7 @@ public class DashboardController {
 
     @FXML
     void initialize(){
+        Session.dashboardPane = dashboardPane;
         initWelcomeUser();
         initPane();
     }

@@ -51,6 +51,10 @@ public class AlertTools {
         return alert.getResult().getText().equals("OK");
     }
 
+    public static void handleSearchValueError() {
+        showAlert("Search Value Error", "Please enter a valid search value", Alert.AlertType.ERROR);
+    }
+
     public static void showAlert(String title, String message, Alert.AlertType type) {
         alert = new Alert(type);
         alert.setTitle(title);

@@ -7,6 +7,7 @@ import data_analytics_hub.functions.TxtFileExecutor;
 import data_analytics_hub.modal.Collection;
 import data_analytics_hub.modal.Post;
 import data_analytics_hub.modal.User;
+import javafx.scene.layout.Pane;
 
 import java.util.ArrayList;
 
@@ -27,6 +28,9 @@ public class Session {
     public static final UserDAO userDAO = new UserDAO();
     public static final CollectionDAO collectionDAO = new CollectionDAO();
     public static final PostDAO postDAO = new PostDAO();
+
+    //Dashboard Pane
+    public static Pane dashboardPane = null;
 
     public static void execute() {
         //handle init all data with DAO
