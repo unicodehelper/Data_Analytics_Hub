@@ -98,7 +98,7 @@ public class AddPostController {
         String datetime = date + " " + cmbHour.getValue() + ":" + cmbMinute.getValue();
 
         Post newPost = new Post(postId, content, author, numLikes, numShares, datetime);
-        Session.currentUser.getCollection().addPost(newPost);
+        Session.currentUser.addPost(newPost);
     }
 
     private void clearFields(){

@@ -84,6 +84,18 @@ public class User {
         this.collection = collection;
     }
 
+    public void removePost(Post post) {
+        collection.removePost(post);
+    }
+
+    public void removePost(String postId) {
+        collection.removePost(postId);
+    }
+
+    public void addPost(Post post) {
+        collection.addPost(post);
+    }
+
     public String[] toStringArray() {
         String[] user = new String[6];
         user[0] = String.valueOf(userId);

@@ -67,6 +67,15 @@ public class AlertTools {
         showAlert("Post ID Error", "Post ID already exists", Alert.AlertType.ERROR);
     }
 
+    public static boolean handleDeletePost() {
+        showAlert("Delete Post", "Are you sure you want to delete this post?", Alert.AlertType.CONFIRMATION);
+        return alert.getResult().getText().equals("OK");
+    }
+
+    public static void handleDeletePostSuccess() {
+        showAlert("Delete Post Success", "Post successfully deleted", Alert.AlertType.INFORMATION);
+    }
+
     public static void showAlert(String title, String message, Alert.AlertType type) {
         alert = new Alert(type);
         alert.setTitle(title);

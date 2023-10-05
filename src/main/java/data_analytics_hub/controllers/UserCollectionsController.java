@@ -49,12 +49,15 @@ public class UserCollectionsController {
             "Likes", "Top N Posts by Likes"
     );
 
+    private ObservableList<Post> postList;
+
     @FXML
     void initialize(){
         initTable();
         initComboBox();
         initButtonDisable();
         initDataRowListener();
+        initSearchFieldListener();
     }
 
     private void initTable(){
@@ -71,13 +74,15 @@ public class UserCollectionsController {
         colLikes.setCellValueFactory(new PropertyValueFactory<>("Likes"));
         colDatetime.setCellValueFactory(new PropertyValueFactory<>("Datetime"));
 
+        postList = data;
         tableCollection.setItems(data);
     }
 
     private void initComboBox(){
-        cmbMethod.getItems().addAll(searchMethods.keySet());
+        //add map value
+        cmbMethod.getItems().addAll(searchMethods.values());
         //set default value
-        cmbMethod.setValue("PostID");
+        cmbMethod.setValue(searchMethods.get("PostID"));
     }
 
     private void initButtonDisable(){
@@ -94,12 +99,46 @@ public class UserCollectionsController {
         });
     }
 
+    private void initSearchFieldListener(){
+        txtSearch.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue.isEmpty()) tableCollection.setItems(postList);
+            else searched();
+        });
+        cmbMethod.valueProperty().addListener((observable, oldValue, newValue) -> txtSearch.setText(""));
+    }
+
     @FXML
     void btnSearchClicked() {
-        if (!checkField()) {
-            // TODO: search by likes, postID
-            System.out.println("Search by " + cmbMethod.getValue() + ": " + txtSearch.getText());
+        if (!isFieldValid()) return;
+
+        searched();
+    }
+
+    private void searched(){
+        String searchType = searchMethods.entrySet().stream()
+                .filter(entry -> Objects.equals(entry.getValue(), cmbMethod.getValue()))
+                .map(Map.Entry::getKey)
+                .findFirst()
+                .orElse(null);
+
+        String searchValue = txtSearch.getText();
+        handleSearch(searchType, searchValue);
+    }
+
+    private void handleSearch(String searchType, String searchValue){
+        ObservableList<Post> data = postList;
+        if (Objects.equals(searchType, "PostID")){
+            //filter table by postID
+            data = data.filtered(post -> Objects.equals(post.getPostId(), searchValue));
         }
+        else if (Objects.equals(searchType, "Likes")){
+            //filter table and sort by likes and top N
+            data = data.sorted((post1, post2) -> post2.getLikes() - post1.getLikes());
+            int topN = Integer.parseInt(searchValue);
+            ObservableList<Post> finalData = data;
+            data = data.filtered(post -> finalData.indexOf(post) < topN);
+        }
+        tableCollection.setItems(data);
     }
 
     @FXML
@@ -116,18 +155,18 @@ public class UserCollectionsController {
         Application.changeScene("add-post", "Add New Post");
     }
 
-    private boolean checkField(){
+    private boolean isFieldValid(){
         if (txtSearch.getText().isEmpty()){
             AlertTools.handleSearchValueError();
-            return true;
+            return false;
         }
 
         if (Objects.equals(cmbMethod.getValue(), "Likes") && !txtSearch.getText().matches("[0-9]+")){
             AlertTools.handleSearchValueError();
-            return true;
+            return false;
         }
 
-        return false;
+        return true;
     }
 
 }

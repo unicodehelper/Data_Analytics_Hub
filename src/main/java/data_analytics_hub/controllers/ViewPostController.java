@@ -2,6 +2,7 @@ package data_analytics_hub.controllers;
 
 import data_analytics_hub.Session;
 import data_analytics_hub.modal.Post;
+import data_analytics_hub.tools.AlertTools;
 import data_analytics_hub.tools.FxTools;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
@@ -46,7 +47,16 @@ public class ViewPostController {
 
     @FXML
     void btnDeleteClicked() {
-
+        boolean delete = AlertTools.handleDeletePost();
+        if (delete) {
+            Session.currentUser.removePost(Session.currentPost.getPostId());
+            try {
+                AlertTools.handleDeletePostSuccess();
+                FxTools.initFXML(Session.dashboardPane, "user-collections");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
 }
