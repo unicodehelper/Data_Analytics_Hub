@@ -21,12 +21,12 @@
          <Font name="Arial" size="14.0"/>
       </font>
    </TextField>
-   <TextField fx:id="txtPassword" layoutX="62.0" layoutY="190.0" prefHeight="30.0" prefWidth="150.0">
+   <TextField fx:id="txtPassword" layoutX="62.0" layoutY="185.0" prefHeight="30.0" prefWidth="150.0">
       <font>
          <Font name="Arial" size="14.0"/>
       </font>
    </TextField>
-   <Label layoutX="62.0" layoutY="164.0" text="Password">
+   <Label layoutX="62.0" layoutY="159.0" text="Password">
       <font>
          <Font name="Arial" size="14.0"/>
       </font>
@@ -41,12 +41,12 @@
          <Font name="Arial" size="14.0"/>
       </font>
    </Label>
-   <TextField fx:id="txtLastName" layoutX="249.0" layoutY="190.0" prefHeight="30.0" prefWidth="150.0">
+   <TextField fx:id="txtLastName" layoutX="249.0" layoutY="185.0" prefHeight="30.0" prefWidth="150.0">
       <font>
          <Font name="Arial" size="14.0"/>
       </font>
    </TextField>
-   <Label layoutX="249.0" layoutY="164.0" text="Last name">
+   <Label layoutX="249.0" layoutY="159.0" text="Last name">
       <font>
          <Font name="Arial" size="14.0"/>
       </font>
@@ -57,4 +57,14 @@
          <Font name="Arial" size="14.0"/>
       </font>
    </Button>
+   <Label layoutX="62.0" layoutY="225.0" text="Email">
+      <font>
+         <Font name="Arial" size="14.0"/>
+      </font>
+   </Label>
+   <TextField fx:id="txtEmail" layoutX="62.0" layoutY="251.0" prefHeight="30.0" prefWidth="150.0">
+      <font>
+         <Font name="Arial" size="14.0"/>
+      </font>
+   </TextField>
 </Pane>

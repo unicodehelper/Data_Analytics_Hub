@@ -15,7 +15,7 @@ public class CollectionDAO extends SuperDAO<Collection> implements DAO<Collectio
         ArrayList<Collection> collections = new ArrayList<>();
         ArrayList<String[]> fileContent = Session.txtFileExecutor.readFileToArray(TxtFileExecutor.COLLECTIONS);
         for(String[] ele : fileContent){
-            Collection collection = null;
+            Collection collection;
             if (ele.length > 1) {
                 ArrayList<String> postIds = new ArrayList<>();
                 String[] postIdsArray = ele[1].split(":");
@@ -71,7 +71,7 @@ public class CollectionDAO extends SuperDAO<Collection> implements DAO<Collectio
     }
 
     @Override
-    public void update(Collection collection, String[] params) {
+    public void update(Collection collection) {
         // do nothing
     }
 

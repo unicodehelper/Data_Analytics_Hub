@@ -56,8 +56,14 @@ public class UserDAO extends SuperDAO<User> implements DAO<User>{
     }
 
     @Override
-    public void update(User user, String[] params) {
-
+    public void update(User user) {
+        for (int i = 0; i < Session.users.size(); i++) {
+            if (Session.users.get(i).getUserId() == user.getUserId()) {
+                Session.users.set(i, user);
+                Session.currentUser = user;
+                break;
+            }
+        }
     }
 
     @Override

@@ -69,7 +69,7 @@ public class PostDAO extends SuperDAO<Post> implements DAO<Post> {
     }
 
     @Override
-    public void update(Post post, String[] params) {
+    public void update(Post post) {
         //do nothing
     }
 
