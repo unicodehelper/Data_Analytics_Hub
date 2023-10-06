@@ -1,12 +1,15 @@
 package data_analytics_hub.tools;
 
 import data_analytics_hub.Application;
+import data_analytics_hub.Session;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
+import javafx.stage.FileChooser;
 
+import java.io.File;
 import java.io.IOException;
 
 public class FxTools {
@@ -29,5 +32,15 @@ public class FxTools {
         FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("view/" + fxml + ".fxml"));
         pane.getChildren().clear();
         pane.getChildren().add(fxmlLoader.load());
+    }
+
+    public static File openSaveFileChooser(){
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Save Post");
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("CSV Files", "*.csv")
+        );
+        fileChooser.setInitialFileName("post-" + Session.currentPost.getPostId());
+        return fileChooser.showSaveDialog(Application.staticStage);
     }
 }

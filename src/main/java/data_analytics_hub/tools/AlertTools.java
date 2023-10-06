@@ -80,6 +80,10 @@ public class AlertTools {
         showAlert("User Details Update Success", "User details successfully updated", Alert.AlertType.INFORMATION);
     }
 
+    public static void handleExportPostSuccess() {
+        showAlert("Export Post Success", "Post successfully exported", Alert.AlertType.INFORMATION);
+    }
+
     public static void showAlert(String title, String message, Alert.AlertType type) {
         alert = new Alert(type);
         alert.setTitle(title);

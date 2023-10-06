@@ -1,12 +1,17 @@
 package data_analytics_hub.controllers;
 
+import data_analytics_hub.Application;
 import data_analytics_hub.Session;
+import data_analytics_hub.functions.CsvExecutor;
 import data_analytics_hub.modal.Post;
 import data_analytics_hub.tools.AlertTools;
 import data_analytics_hub.tools.FxTools;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.stage.FileChooser;
+
+import java.io.File;
 
 public class ViewPostController {
 
@@ -42,7 +47,11 @@ public class ViewPostController {
 
     @FXML
     void btnExportClicked() {
-
+        File file = FxTools.openSaveFileChooser();
+        if (file != null) {
+            Session.csvExecutor.exportPostToCsv(file, Session.currentPost);
+            AlertTools.handleExportPostSuccess();
+        }
     }
 
     @FXML

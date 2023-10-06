@@ -3,6 +3,7 @@ package data_analytics_hub;
 import data_analytics_hub.dao.CollectionDAO;
 import data_analytics_hub.dao.PostDAO;
 import data_analytics_hub.dao.UserDAO;
+import data_analytics_hub.functions.CsvExecutor;
 import data_analytics_hub.functions.TxtFileExecutor;
 import data_analytics_hub.modal.Collection;
 import data_analytics_hub.modal.Post;
@@ -23,6 +24,7 @@ public class Session {
 
     //file executor
     public static TxtFileExecutor txtFileExecutor = null;
+    public static CsvExecutor csvExecutor = null;
 
     //DAO
     public static UserDAO userDAO = null;
@@ -43,6 +45,7 @@ public class Session {
     private static void init() {
         //handle init all needed obj
         txtFileExecutor = new TxtFileExecutor();
+        csvExecutor = new CsvExecutor();
         userDAO = new UserDAO();
         collectionDAO = new CollectionDAO();
         postDAO = new PostDAO();
