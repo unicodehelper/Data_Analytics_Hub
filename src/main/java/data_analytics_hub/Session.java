@@ -34,6 +34,9 @@ public class Session {
     //Dashboard Pane
     public static Pane dashboardPane = null;
 
+    //Dashboard Notice Pane
+    public static boolean isWelcomeNoticed = false;
+
     public static void execute() {
         init();
         //handle init all data with DAO

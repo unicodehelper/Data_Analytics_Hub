@@ -11,16 +11,17 @@ import javafx.scene.layout.Pane;
 public class DashboardController {
 
     @FXML
-    private Label lblUsername;
+    private Label lblUsername, lblFullName;
 
     @FXML
-    private Pane dashboardPane;
+    private Pane dashboardPane, noticePane;
 
     @FXML
     void initialize(){
         Session.dashboardPane = dashboardPane;
         initWelcomeUser();
         initPane();
+        initWelcomeNotice();
     }
 
     private void initWelcomeUser(){
@@ -29,6 +30,23 @@ public class DashboardController {
 
     private void initPane(){
         switchPane("user-collections");
+    }
+
+    private void initWelcomeNotice(){
+        if(!Session.isWelcomeNoticed){
+            noticePane.setVisible(true);
+            lblFullName.setText(Session.currentUser.getFullName());
+            Session.isWelcomeNoticed = true;
+            //set a timer to hide the noticePane
+            new Thread(() -> {
+                try {
+                    Thread.sleep(3000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                noticePane.setVisible(false);
+            }).start();
+        }
     }
 
     private void switchPane(String fxmlName) {
@@ -54,6 +72,8 @@ public class DashboardController {
     void btnLogoutClicked() {
         if (AlertTools.handleLogout()) {
             Session.currentUser = null;
+            Session.currentPost = null;
+            Session.isWelcomeNoticed = false;
             Application.changeScene("main-menu", "Data Analytics Hub");
         }
     }

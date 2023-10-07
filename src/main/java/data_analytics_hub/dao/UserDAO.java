@@ -13,7 +13,9 @@ public class UserDAO extends SuperDAO<User> implements DAO<User>{
         ArrayList<User> users = new ArrayList<>();
         ArrayList<String[]> fileContent = Session.txtFileExecutor.readFileToArray(TxtFileExecutor.USERS);
         for(String[] ele : fileContent){
-            users.add(new User(Integer.parseInt(ele[0]), ele[1], ele[2], ele[3], ele[4], ele[5]));
+            users.add(
+               new User(Integer.parseInt(ele[0]), ele[1], ele[2], ele[3], ele[4], ele[5], Boolean.parseBoolean(ele[6]))
+            );
         }
         return users;
     }
