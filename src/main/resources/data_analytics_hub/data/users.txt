@@ -1,1 +1,2 @@
 1|tester|POFzEFThDWZxj+8mkOmQ5A==|test|Last|tester@gmail.com|true
+2|newuser|Pff2Qx9y/ZIgD2Ldm85Hig==|New|User|newuser@gmail.com|true

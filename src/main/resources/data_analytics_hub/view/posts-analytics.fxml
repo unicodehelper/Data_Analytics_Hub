@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.*?>
+<Pane prefHeight="450.0" prefWidth="460.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="data_analytics_hub.controllers.PostsAnalyticsController">
+    <Label focusTraversable="true" layoutX="163.0" layoutY="21.0" text="Posts Analytics">
+        <font>
+            <Font name="Arial Bold" size="18.0"/>
+        </font>
+    </Label>
+    <PieChart fx:id="pieChart" labelLineLength="18.0" layoutX="60.0" layoutY="42.0" prefHeight="320.0" prefWidth="340.0"
+              title="#Shares Distribution"/>
+    <Label layoutX="96.0" layoutY="420.0" text="Total Posts in Collection:">
+        <font>
+            <Font name="Arial Bold" size="14.0"/>
+        </font>
+    </Label>
+    <Label fx:id="lblPostsCount" layoutX="278.0" layoutY="420.0" text="Number">
+        <font>
+            <Font name="Arial" size="14.0"/>
+        </font>
+    </Label>
+    <Label layoutX="73.0" layoutY="364.0" text="Category 1: #shares &lt; 100">
+        <font>
+          <Font name="Arial" size="12.0"/>
+        </font>
+    </Label>
+    <Label layoutX="73.0" layoutY="381.0" text="Category 2: #shares &gt;= 100 &amp; &lt; 1000">
+        <font>
+          <Font name="Arial" size="12.0"/>
+        </font>
+    </Label>
+    <Label layoutX="73.0" layoutY="398.0" text="Category 3: #shares &gt;= 1000">
+        <font>
+          <Font name="Arial" size="12.0"/>
+        </font>
+    </Label>
+</Pane>

@@ -1,6 +1,7 @@
 package data_analytics_hub.tools;
 
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 
 public class AlertTools {
 
@@ -82,6 +83,15 @@ public class AlertTools {
 
     public static void handleExportPostSuccess() {
         showAlert("Export Post Success", "Post successfully exported", Alert.AlertType.INFORMATION);
+    }
+
+    public static boolean handleUpgradePlan(){
+        showAlert("Upgrade Plan", "Would you like to subscribe to the application for a monthly fee of $0?", Alert.AlertType.CONFIRMATION);
+        return alert.getResult().getText().equals("OK");
+    }
+
+    public static void handleUpgradePlanSuccess(){
+        showAlert("Upgrade Plan Success", "Please log out and log in again to access VIP functionalities.", Alert.AlertType.INFORMATION);
     }
 
     public static void showAlert(String title, String message, Alert.AlertType type) {

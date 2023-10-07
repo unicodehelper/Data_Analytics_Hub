@@ -5,23 +5,28 @@ import data_analytics_hub.Session;
 import data_analytics_hub.tools.AlertTools;
 import data_analytics_hub.tools.FxTools;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 
 public class DashboardController {
 
     @FXML
-    private Label lblUsername, lblFullName;
+    private Label lblUsername, lblFullName, lblPlan;
 
     @FXML
     private Pane dashboardPane, noticePane;
+
+    @FXML
+    private Button btnUpgradePlan, btnBulkImport, btnPostsAnalytics;
 
     @FXML
     void initialize(){
         Session.dashboardPane = dashboardPane;
         initWelcomeUser();
         initPane();
-        initWelcomeNotice();
+        showWelcomeNotice();
+        handleUserPlan();
     }
 
     private void initWelcomeUser(){
@@ -32,7 +37,7 @@ public class DashboardController {
         switchPane("user-collections");
     }
 
-    private void initWelcomeNotice(){
+    private void showWelcomeNotice(){
         if(!Session.isWelcomeNoticed){
             noticePane.setVisible(true);
             lblFullName.setText(Session.currentUser.getFullName());
@@ -46,6 +51,18 @@ public class DashboardController {
                 }
                 noticePane.setVisible(false);
             }).start();
+        }
+    }
+
+    private void handleUserPlan(){
+        if (Session.currentUser.getIsVip()) {
+            lblPlan.setText("VIP");
+            btnUpgradePlan.setVisible(false);
+            btnBulkImport.setDisable(false);
+            btnPostsAnalytics.setDisable(false);
+        } else {
+            lblPlan.setText("Free");
+            btnUpgradePlan.setVisible(true);
         }
     }
 
@@ -69,13 +86,37 @@ public class DashboardController {
     }
 
     @FXML
+    void btnUpgradeClicked() {
+        boolean isUpgrade = AlertTools.handleUpgradePlan();
+        if (isUpgrade) {
+            Session.currentUser.setIsVip(true);
+            AlertTools.handleUpgradePlanSuccess();
+            userLogout();
+        }
+    }
+
+    @FXML
+    void btnBulkImportClicked() {
+//        switchPane("bulk-import");
+    }
+
+    @FXML
+    void btnPostsAnalyticsClicked() {
+        switchPane("posts-analytics");
+    }
+
+    @FXML
     void btnLogoutClicked() {
         if (AlertTools.handleLogout()) {
-            Session.currentUser = null;
-            Session.currentPost = null;
-            Session.isWelcomeNoticed = false;
-            Application.changeScene("main-menu", "Data Analytics Hub");
+            userLogout();
         }
+    }
+
+    private void userLogout(){
+        Session.currentUser = null;
+        Session.currentPost = null;
+        Session.isWelcomeNoticed = false;
+        Application.changeScene("main-menu", "Data Analytics Hub");
     }
 
 }
