@@ -97,7 +97,7 @@ public class DashboardController {
 
     @FXML
     void btnBulkImportClicked() {
-//        switchPane("bulk-import");
+        switchPane("bulk-import");
     }
 
     @FXML

@@ -3,41 +3,15 @@ package data_analytics_hub.functions;
 import java.io.File;
 import java.io.FileWriter;
 import java.util.ArrayList;
-import java.util.Scanner;
 
-public class TxtFileExecutor implements IFileExecutor{
-    private static final String filePath = "src\\main\\resources\\data_analytics_hub\\data\\";
+public class TxtFileExecutor extends FileExecutor implements ITxtFileExecutor {
     public static final String USERS = "users";
     public static final String POSTS = "posts";
     public static final String COLLECTIONS = "collections";
 
-    @Override
-    public ArrayList<String> readFile(String path){
-        ArrayList<String> content = new ArrayList<>();
-        try{
-            File file = new java.io.File(path);
-            Scanner scanner = new java.util.Scanner(file);
-
-            while(scanner.hasNextLine()){
-                String data = scanner.nextLine();
-                content.add(data);
-            }
-            scanner.close();
-        }catch(Exception e){
-            System.out.println(e.getMessage());
-        }
-        return content;
-    }
-
-    @Override
     public ArrayList<String[]> readFileToArray(String filename){
         String path = filePath + filename + ".txt";
-        ArrayList<String[]> content = new ArrayList<>();
-        ArrayList<String> fileContent = readFile(path);
-        for(String ele : fileContent){
-            content.add(ele.split("\\|"));
-        }
-        return content;
+        return super.readFileToArray(path);
     }
 
     @Override
@@ -65,7 +39,7 @@ public class TxtFileExecutor implements IFileExecutor{
 
     @Override
     public void writeArrToFile(String filename, String[] data){
-        String content = String.join("|", data);
+        String content = String.join(",", data);
         writeFile(filename, content);
     }
 

@@ -1,14 +1,17 @@
 package data_analytics_hub.functions;
 
+import data_analytics_hub.dao.PostDAO;
 import data_analytics_hub.modal.Post;
+import data_analytics_hub.tools.AlertTools;
 
 import java.io.File;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CsvExecutor implements ICsvExecutor {
+public class CsvExecutor extends FileExecutor implements ICsvExecutor {
 
+    static final PostDAO postDAO = new PostDAO();
     private static final String[] FILE_HEADER = {"Post ID", "Content", "Author", "Likes", "Shares", "Datetime"};
 
     public String convertToCsv(List<String[]> data) {
@@ -25,13 +28,23 @@ public class CsvExecutor implements ICsvExecutor {
         return sb.toString();
     }
 
-    public List<String[]> convertFromCsv(String csv) {
-        List<String[]> data = new ArrayList<>();
-        String[] rows = csv.split(NEW_LINE_SEPARATOR);
-        for (String row : rows) {
-            data.add(row.split(COMMA_DELIMITER));
+    public ArrayList<Post> convertToPostList(File file) {
+        ArrayList<Post> posts = new ArrayList<>();
+        ArrayList<String[]> content = readFileToArray(file.getPath());
+        if(content.get(0)[0].matches("ID") || content.get(0)[0].matches("Post ID")) {
+            //include header
+            content.remove(0);
+        } else {
+            //not correct format
+            return null;
         }
-        return data;
+        for (String[] ele : content) {
+            if (ele.length != 6 && ele.length != 7) {
+                return null;
+            }
+            posts.add(postDAO.convertArrToPost(ele));
+        }
+        return posts;
     }
 
     public void writeArrToFile(File file, List<String[]> data) {

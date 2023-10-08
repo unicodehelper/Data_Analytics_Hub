@@ -1,6 +1,7 @@
 package data_analytics_hub.modal;
 
 import data_analytics_hub.dao.CollectionDAO;
+import data_analytics_hub.dao.PostDAO;
 
 public class User {
 
@@ -13,6 +14,7 @@ public class User {
     protected boolean isVip;
     protected Collection collection;
     protected CollectionDAO collectionDAO = new CollectionDAO();
+    protected PostDAO postDAO = new PostDAO();
 
     public User() {
         //do nothing

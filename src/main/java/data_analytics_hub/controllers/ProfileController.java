@@ -34,7 +34,10 @@ public class ProfileController {
 
     @FXML
     void btnUpdateClicked() {
-        if (!isFieldNotEmpty()) return;
+        if (!isFieldNotEmpty()) {
+            AlertTools.handleEmptyField();
+            return;
+        }
         if (!isFieldValid()) return;
         if (isUsernameExist(txtUsername.getText())) {
             AlertTools.handleUsernameExistsError();
@@ -51,11 +54,24 @@ public class ProfileController {
     }
 
     private boolean isFieldValid(){
-        return Validator.validateUsername(txtUsername.getText()) &&
-                Validator.validateName(txtFirstName.getText()) &&
-                Validator.validateName(txtLastName.getText()) &&
-                Validator.validatePassword(txtPassword.getText()) &&
-                Validator.validateEmail(txtEmail.getText());
+        if (!Validator.validateUsername(txtUsername.getText())) {
+            AlertTools.handleUsernameFormatError();
+            return false;
+        }
+        if (!Validator.validateName(txtFirstName.getText()) ||
+                !Validator.validateName(txtLastName.getText())) {
+            AlertTools.handleNameFormatError();
+            return false;
+        }
+        if (!Validator.validatePassword(txtPassword.getText())) {
+            AlertTools.handlePasswordFormatError();
+            return false;
+        }
+        if (!Validator.validateEmail(txtEmail.getText())) {
+            AlertTools.handleEmailFormatError();
+            return false;
+        }
+        return true;
     }
 
     private boolean isUsernameExist(String username){

@@ -64,6 +64,10 @@ public class AlertTools {
         showAlert("Add Post Success", "Post successfully added", Alert.AlertType.INFORMATION);
     }
 
+    public static void handleAddPostFailed() {
+        showAlert("Add Post Failed", "Post failed to be added", Alert.AlertType.ERROR);
+    }
+
     public static void handlePostIdExists() {
         showAlert("Post ID Error", "Post ID already exists", Alert.AlertType.ERROR);
     }
@@ -92,6 +96,10 @@ public class AlertTools {
 
     public static void handleUpgradePlanSuccess(){
         showAlert("Upgrade Plan Success", "Please log out and log in again to access VIP functionalities.", Alert.AlertType.INFORMATION);
+    }
+
+    public static void handleImportCsvFormatError() {
+        showAlert("Import CSV Content Error", "Please ensure that the CSV file is in the correct format", Alert.AlertType.ERROR);
     }
 
     public static void showAlert(String title, String message, Alert.AlertType type) {

@@ -6,7 +6,6 @@ import data_analytics_hub.modal.Collection;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Objects;
 import java.util.Optional;
 
 public class CollectionDAO extends SuperDAO<Collection> implements DAO<Collection> {

@@ -43,4 +43,13 @@ public class FxTools {
         fileChooser.setInitialFileName("post-" + Session.currentPost.getPostId());
         return fileChooser.showSaveDialog(Application.staticStage);
     }
+
+    public static File openImportFileChooser(){
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Import Post");
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("CSV Files", "*.csv")
+        );
+        return fileChooser.showOpenDialog(Application.staticStage);
+    }
 }

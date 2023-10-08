@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane prefHeight="450.0" prefWidth="460.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="data_analytics_hub.controllers.BulkImportController">
+    <Label focusTraversable="true" layoutX="153.0" layoutY="22.0" text="Bulk Import Posts">
+        <font>
+            <Font name="Arial Bold" size="18.0"/>
+        </font>
+    </Label>
+    <TableView fx:id="tableImportedPosts" layoutX="5.0" layoutY="100.0" prefHeight="250.0" prefWidth="450.0">
+      <columns>
+          <TableColumn fx:id="colPostId" editable="false" prefWidth="60.0" resizable="false" sortable="false"
+                       text="ID"/>
+          <TableColumn fx:id="colContent" editable="false" prefWidth="105.0" sortable="false" text="Content"/>
+          <TableColumn fx:id="colAuthor" editable="false" prefWidth="75.0" resizable="false" sortable="false"
+                       text="Author"/>
+          <TableColumn fx:id="colLikes" prefWidth="55.0" resizable="false" text="Likes"/>
+          <TableColumn fx:id="colShares" editable="false" prefWidth="55.0" resizable="false" sortable="false"
+                       text="Shares"/>
+          <TableColumn fx:id="colDatetime" editable="false" prefWidth="100.0" resizable="false" sortable="false"
+                       text="Datetime"/>
+      </columns>
+    </TableView>
+    <Button fx:id="btnSelectFile" layoutX="6.0" layoutY="60.0" mnemonicParsing="false"
+            onMouseClicked="#btnSelectFileClicked" prefHeight="30.0" prefWidth="140.0" text="Select Csv File">
+        <font>
+          <Font name="Arial" size="14.0"/>
+        </font>
+    </Button>
+    <Button fx:id="btnAddCollection" layoutX="314.0" layoutY="374.0" mnemonicParsing="false"
+            disable="true"
+            onMouseClicked="#btnAddCollectionClicked" prefHeight="30.0" prefWidth="140.0" text="Add to Collection">
+        <font>
+          <Font name="Arial" size="14.0"/>
+        </font>
+    </Button>
+</Pane>

@@ -2,11 +2,7 @@ package data_analytics_hub.functions;
 
 import java.util.ArrayList;
 
-public interface IFileExecutor {
-
-    ArrayList<String> readFile(String path);
-
-    ArrayList<String[]> readFileToArray(String filename);
+public interface ITxtFileExecutor {
 
     boolean rewriteFile(String filename, ArrayList<String[]> data);
 

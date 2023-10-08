@@ -12,6 +12,15 @@ public class Post {
         //do nothing
     }
 
+    public Post(String[] data) {
+        this.postId = data[0];
+        this.content = data[1];
+        this.author = data[2];
+        this.likes = Integer.parseInt(data[3]);
+        this.shares = Integer.parseInt(data[4]);
+        this.datetime = data[5];
+    }
+
     public Post(String postId, String content, String author, int likes, int shares, String datetime) {
         this.postId = postId;
         this.content = content;
@@ -72,7 +81,11 @@ public class Post {
     public String[] toStringArray(){
         String[] post = new String[6];
         post[0] = this.postId;
-        post[1] = this.content;
+
+        if(content.contains(",")){
+            post[1] = "\"" + this.content + "\"";
+        }else post[1] = this.content;
+
         post[2] = this.author;
         post[3] = Integer.toString(this.likes);
         post[4] = Integer.toString(this.shares);

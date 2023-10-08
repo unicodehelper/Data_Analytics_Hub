@@ -14,9 +14,7 @@ public class PostDAO extends SuperDAO<Post> implements DAO<Post> {
         ArrayList<Post> posts = new ArrayList<>();
         ArrayList<String[]> fileContent = Session.txtFileExecutor.readFileToArray(TxtFileExecutor.POSTS);
         for(String[] ele : fileContent){
-            posts.add(
-                    new Post(ele[0], ele[1], ele[2], Integer.parseInt(ele[3]), Integer.parseInt(ele[4]), ele[5])
-            );
+            posts.add(convertArrToPost(ele));
         }
         return posts;
     }
@@ -29,6 +27,19 @@ public class PostDAO extends SuperDAO<Post> implements DAO<Post> {
         Session.txtFileExecutor.rewriteFile(TxtFileExecutor.POSTS, postsContent);
     }
 
+    public Post convertArrToPost(String[] arr) {
+        Post post;
+        if (arr.length == 6) {
+            post = new Post(arr[0], arr[1], arr[2], Integer.parseInt(arr[3]), Integer.parseInt(arr[4]), arr[5]);
+        }
+        else {
+            String content = arr[1] + "," + arr[2];
+            content = content.replace("\"", "");
+            post = new Post(arr[0], content, arr[3], Integer.parseInt(arr[4]), Integer.parseInt(arr[5]), arr[6]);
+        }
+        return post;
+    }
+
     public Post getPostById(String id) {
         for (Post post : Session.posts) {
             if (Objects.equals(post.getPostId(), id)) {
@@ -36,7 +47,7 @@ public class PostDAO extends SuperDAO<Post> implements DAO<Post> {
                 return post;
             }
         }
-        return new Post();
+        return null;
     }
 
     @Override
@@ -56,6 +67,15 @@ public class PostDAO extends SuperDAO<Post> implements DAO<Post> {
             }
         }
         return Optional.empty();
+    }
+
+    public boolean isPostExist(String[] ids) {
+        for (String id : ids) {
+            if (getPostById(id) == null) {
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override

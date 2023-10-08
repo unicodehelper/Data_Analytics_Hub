@@ -10,7 +10,5 @@ public interface ICsvExecutor {
 
     String convertToCsv(List<String[]> data);
 
-    List<String[]> convertFromCsv(String csv);
-
     void writeArrToFile(File file, List<String[]> data);
 }
