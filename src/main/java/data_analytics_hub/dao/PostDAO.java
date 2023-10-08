@@ -33,9 +33,13 @@ public class PostDAO extends SuperDAO<Post> implements DAO<Post> {
             post = new Post(arr[0], arr[1], arr[2], Integer.parseInt(arr[3]), Integer.parseInt(arr[4]), arr[5]);
         }
         else {
-            String content = arr[1] + "," + arr[2];
-            content = content.replace("\"", "");
-            post = new Post(arr[0], content, arr[3], Integer.parseInt(arr[4]), Integer.parseInt(arr[5]), arr[6]);
+            int size = arr.length;
+            StringBuilder content = new StringBuilder();
+            for (int i = 1; i < size - 4; i++) {
+                content.append(arr[i]).append(" ");
+            }
+            content = new StringBuilder(content.toString().replace("\"", ""));
+            post = new Post(arr[0], content.toString(), arr[size-4], Integer.parseInt(arr[size-3]), Integer.parseInt(arr[size-2]), arr[size-1]);
         }
         return post;
     }
