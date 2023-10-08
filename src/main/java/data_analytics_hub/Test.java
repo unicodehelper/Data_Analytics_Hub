@@ -32,15 +32,7 @@ public class Test {
         System.out.println(isEmailValid);
     }
 
-    private static void runReadCsv(){
-        String path = "src/main/resources/data_analytics_hub/data/post.csv";
-        File file = new File(path);
-        ArrayList<Post> content = csvExecutor.convertToPostList(file);
-        System.out.println(content);
-    }
-
     public static void main(String[] args) {
-//        runEmailTest();
-        runReadCsv();
+        runEmailTest();
     }
 }

@@ -14,7 +14,6 @@ public class User {
     protected boolean isVip;
     protected Collection collection;
     protected CollectionDAO collectionDAO = new CollectionDAO();
-    protected PostDAO postDAO = new PostDAO();
 
     public User() {
         //do nothing

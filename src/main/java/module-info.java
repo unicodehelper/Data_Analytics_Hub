@@ -1,6 +1,7 @@
 module data_analytics_hub {
     requires javafx.controls;
     requires javafx.fxml;
+    requires org.junit.jupiter.api;
 
 
     opens data_analytics_hub to javafx.fxml;

@@ -7,6 +7,11 @@ import java.util.Scanner;
 public class FileExecutor {
     final String filePath = "src\\main\\resources\\data_analytics_hub\\data\\";
 
+    public boolean isFileReadable(String path){
+        File file = new File(path);
+        return file.canRead();
+    }
+
     public ArrayList<String> readFile(String path){
         ArrayList<String> content = new ArrayList<>();
         try{

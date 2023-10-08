@@ -2,6 +2,7 @@ package data_analytics_hub.controllers;
 
 import data_analytics_hub.Application;
 import data_analytics_hub.Session;
+import data_analytics_hub.functions.Validator;
 import data_analytics_hub.modal.Post;
 import data_analytics_hub.tools.AlertTools;
 import javafx.fxml.FXML;
@@ -50,8 +51,8 @@ public class AddPostController {
             return false;
         }
 
-        if (!txtNumLikes.getText().matches("[0-9]+") ||
-                !txtNumShares.getText().matches("[0-9]+")
+        if (!Validator.validateNumber(txtNumLikes.getText()) ||
+                !Validator.validateNumber(txtNumShares.getText())
         ) {
             AlertTools.handleNotIntegerError();
             return false;

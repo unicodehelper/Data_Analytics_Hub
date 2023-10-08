@@ -16,8 +16,7 @@ public class Application extends javafx.application.Application {
         double width = 600;
         double height = 450;
 
-//        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("view/main-menu.fxml"));
-        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("view/dashboard.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("view/main-menu.fxml"));
         Rectangle2D screenBounds = javafx.stage.Screen.getPrimary().getVisualBounds();
         staticStage = stage;
 
@@ -48,7 +47,6 @@ public class Application extends javafx.application.Application {
 
     public static void main(String[] args) {
         Session.execute();
-        Session.currentUser = UserFactory.getUser("tester", "test123");
         launch();
     }
 }

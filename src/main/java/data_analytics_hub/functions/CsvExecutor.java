@@ -2,7 +2,6 @@ package data_analytics_hub.functions;
 
 import data_analytics_hub.dao.PostDAO;
 import data_analytics_hub.modal.Post;
-import data_analytics_hub.tools.AlertTools;
 
 import java.io.File;
 import java.io.PrintWriter;

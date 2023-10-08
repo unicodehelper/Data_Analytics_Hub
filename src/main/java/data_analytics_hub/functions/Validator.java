@@ -22,4 +22,8 @@ public class Validator {
         return password.length() >= 6;
     }
 
+    public static boolean validateNumber(String number){
+        return number.matches("[0-9]+");
+    }
+
 }

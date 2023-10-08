@@ -31,16 +31,7 @@ public class LoginController {
     void btnLoginClicked() {
         if (checkEmptyField()) return;
 
-        String username = txtUsername.getText();
-        String password = txtPassword.getText() == null ? txtPasswordView.getText() : txtPassword.getText();
-        User user = UserFactory.getUser(username, password);
-        if (user != null) {
-            Session.currentUser = user;
-            AlertTools.handleLoginSuccess();
-            Application.changeScene("dashboard", "Dashboard");
-        } else {
-            AlertTools.handleLoginFailed();
-        }
+        handleLogin();
     }
 
     private boolean checkEmptyField() {
@@ -54,5 +45,18 @@ public class LoginController {
     @FXML
     void pwdToggleClicked() {
         FxTools.togglePwdVisible(txtPassword,txtPasswordView, pwdToggle);
+    }
+
+    private void handleLogin(){
+        String username = txtUsername.getText();
+        String password = txtPassword.getText() == null ? txtPasswordView.getText() : txtPassword.getText();
+        User user = UserFactory.getUser(username, password);
+        if (user != null) {
+            Session.currentUser = user;
+            AlertTools.handleLoginSuccess();
+            Application.changeScene("dashboard", "Dashboard");
+        } else {
+            AlertTools.handleLoginFailed();
+        }
     }
 }
