@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<Pane prefHeight="450.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="data_analytics_hub.controllers.MainMenuController">
+    <Label layoutX="191.0" layoutY="54.0" text="Data Analytics Hub" textFill="#1d2129">
+        <font>
+            <Font name="Arial Bold" size="24.0"/>
+        </font>
+    </Label>
+    <VBox layoutX="190.0" layoutY="163.0" prefHeight="155.0" prefWidth="220.0" spacing="25.0">
+        <Button focusTraversable="false" mnemonicParsing="false" onMouseClicked="#btnRegisterClicked"
+                prefHeight="35.0" prefWidth="220.0" text="Register">
+            <font>
+                <Font name="Arial" size="14.0"/>
+            </font>
+        </Button>
+        <Button focusTraversable="false" mnemonicParsing="false" onMouseClicked="#btnLoginClicked" prefHeight="35.0"
+                prefWidth="220.0" text="Login">
+            <font>
+                <Font name="Arial" size="14.0"/>
+            </font>
+        </Button>
+        <Button focusTraversable="false" mnemonicParsing="false" onMouseClicked="#btnExitClicked" prefHeight="35.0"
+                prefWidth="220.0" text="Exit">
+            <font>
+                <Font name="Arial" size="14.0"/>
+            </font>
+        </Button>
+    </VBox>
+</Pane>

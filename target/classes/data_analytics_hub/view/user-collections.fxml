@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.*?>
+
+<Pane prefHeight="450.0" prefWidth="460.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="data_analytics_hub.controllers.UserCollectionsController">
+    <Label focusTraversable="true" layoutX="166.0" layoutY="22.0" text="My Collections">
+        <font>
+            <Font name="Arial Bold" size="18.0"/>
+        </font>
+    </Label>
+    <TableView fx:id="tableCollection" layoutX="30.0" layoutY="138.0" maxHeight="250.0" prefHeight="250.0"
+               prefWidth="400.0">
+        <columns>
+            <TableColumn fx:id="colPostID" editable="false" prefWidth="60.0" resizable="false" sortable="false"
+                         text="Post ID"/>
+            <TableColumn fx:id="colContent" editable="false" prefWidth="175.0" resizable="false" sortable="false"
+                         text="Content"/>
+            <TableColumn fx:id="colLikes" editable="false" prefWidth="65.0" resizable="false" text="Likes"/>
+            <TableColumn fx:id="colDatetime" editable="false" prefWidth="100.0" resizable="false" sortable="false"
+                         text="Datetime"/>
+        </columns>
+    </TableView>
+    <TextField fx:id="txtSearch" layoutX="264.0" layoutY="95.0" prefHeight="30.0" prefWidth="100.0"
+               promptText="Enter value">
+        <font>
+            <Font name="Arial" size="14.0"/>
+        </font>
+    </TextField>
+    <Button focusTraversable="false" layoutX="364.0" layoutY="95.0" mnemonicParsing="false"
+            onMouseClicked="#btnSearchClicked" prefHeight="30.0" prefWidth="65.0" text="Search">
+        <font>
+            <Font name="Arial" size="14.0"/>
+        </font>
+    </Button>
+    <Button fx:id="btnViewPost" layoutX="310.0" layoutY="396.0" mnemonicParsing="false"
+            onMouseClicked="#btnViewPostClicked" prefHeight="30.0" prefWidth="120.0" text="View Post">
+        <font>
+            <Font name="Arial" size="14.0"/>
+        </font>
+    </Button>
+    <Button layoutX="30.0" layoutY="64.0" mnemonicParsing="false" onMouseClicked="#btnAddPostClicked" prefHeight="30.0"
+            prefWidth="92.0" text="+ New Post">
+        <font>
+            <Font name="Arial" size="14.0"/>
+        </font>
+    </Button>
+    <Label layoutX="31.0" layoutY="403.0" text="Current Selected Post ID:">
+        <font>
+            <Font name="Arial" size="14.0"/>
+        </font>
+    </Label>
+    <Label fx:id="lblCurrentPost" layoutX="201.0" layoutY="403.0">
+        <font>
+            <Font name="Arial" size="14.0"/>
+        </font>
+    </Label>
+    <ComboBox fx:id="cmbMethod" editable="true" layoutX="263.0" layoutY="63.0" prefHeight="30.0" prefWidth="166.0"
+              promptText="Search by"/>
+</Pane>

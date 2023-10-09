@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Pane prefHeight="450.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="data_analytics_hub.controllers.DashboardController">
+   <VBox prefHeight="450.0" prefWidth="140.0" spacing="15.0">
+      <Pane prefHeight="117.0" prefWidth="140.0">
+         <Label layoutX="16.0" layoutY="22.0" text="User Dashboard">
+            <font>
+               <Font name="Arial Bold" size="16.0"/>
+            </font>
+         </Label>
+         <Label fx:id="lblUsername" layoutX="16.0" layoutY="47.0" text="username">
+            <font>
+               <Font name="Arial" size="14.0"/>
+            </font>
+         </Label>
+         <Label layoutX="16.0" layoutY="74.0" text="My Plan:" textFill="#4e5969">
+            <font>
+               <Font name="Arial" size="12.0"/>
+            </font>
+         </Label>
+         <Label fx:id="lblPlan" layoutX="68.0" layoutY="73.0" text="Free" textFill="#ff7d00">
+            <font>
+               <Font name="Arial Bold" size="14.0"/>
+            </font>
+         </Label>
+      </Pane>
+      <Button focusTraversable="false" mnemonicParsing="false" onMouseClicked="#btnProfileClicked" prefHeight="30.0"
+              prefWidth="140.0" text="Profile">
+         <font>
+            <Font name="Arial" size="12.0"/>
+         </font>
+      </Button>
+      <Button focusTraversable="false" mnemonicParsing="false" onMouseClicked="#btnCollectionClicked"
+              prefHeight="30.0" prefWidth="140.0" text="My Collections">
+         <font>
+            <Font name="Arial" size="12.0"/>
+         </font>
+      </Button>
+      <Button fx:id="btnPostsAnalytics" disable="true" focusTraversable="false" mnemonicParsing="false" prefHeight="30.0" prefWidth="140.0"
+              onMouseClicked="#btnPostsAnalyticsClicked"
+              text="VIP Posts Analytics">
+         <font>
+            <Font name="Arial" size="12.0"/>
+         </font>
+      </Button>
+      <Pane prefHeight="127.0" prefWidth="140.0">
+         <Button fx:id="btnUpgradePlan" focusTraversable="false" layoutY="98.0" mnemonicParsing="false"
+                 onMouseClicked="#btnUpgradeClicked" prefHeight="30.0" prefWidth="140.0" text="Upgrade Plan">
+            <font>
+               <Font name="Arial" size="12.0"/>
+            </font>
+         </Button>
+         <Button fx:id="btnBulkImport" focusTraversable="false" mnemonicParsing="false"
+                 onMouseClicked="#btnBulkImportClicked" prefHeight="30.0" prefWidth="140.0"
+                 text="Bulk Import Post" disable="true">
+            <font>
+               <Font name="Arial" size="12.0"/>
+            </font>
+         </Button>
+      </Pane>
+      <Button focusTraversable="false" mnemonicParsing="false" onMouseClicked="#btnLogoutClicked" prefHeight="30.0"
+              prefWidth="140.0" text="Logout">
+         <font>
+            <Font name="Arial" size="12.0"/>
+         </font>
+      </Button>
+   </VBox>
+   <Pane fx:id="dashboardPane" layoutX="140.0" prefHeight="450.0" prefWidth="460.0"/>
+   <Pane fx:id="noticePane" layoutX="220.0" layoutY="28.0" prefHeight="40.0" prefWidth="300.0"
+         style="-fx-background-radius: 25px; -fx-background-color: white; -fx-border-radius: 25px; -fx-border-color: #dfdfdf;"
+         visible="false">
+      <Label layoutX="23.0" layoutY="12.0" text="Hello, welcome">
+         <font>
+            <Font name="Arial" size="14.0"/>
+         </font>
+      </Label>
+      <Label fx:id="lblFullName" layoutX="124.0" layoutY="12.0" text="full name">
+         <font>
+            <Font name="Arial" size="14.0"/>
+         </font>
+      </Label>
+   </Pane>
+</Pane>

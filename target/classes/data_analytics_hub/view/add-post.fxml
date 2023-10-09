@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.*?>
+
+<Pane prefHeight="450.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="data_analytics_hub.controllers.AddPostController">
+   <Label focusTraversable="true" layoutX="247.0" layoutY="19.0" text="Add Post">
+      <font>
+         <Font name="Arial Bold" size="24.0"/>
+      </font>
+   </Label>
+   <Button focusTraversable="false" layoutX="46.0" layoutY="19.0" mnemonicParsing="false" onMouseClicked="#btnBackClicked" prefHeight="25.0"
+           prefWidth="70.0" text="Back">
+      <font>
+         <Font name="Arial" size="14.0"/>
+      </font>
+   </Button>
+   <Label layoutX="133.0" layoutY="70.0" text="Post ID">
+      <font>
+         <Font name="Arial" size="14.0"/>
+      </font>
+   </Label>
+   <Label layoutX="131.0" layoutY="105.0" text="Content">
+      <font>
+         <Font name="Arial" size="14.0"/>
+      </font>
+   </Label>
+   <Label layoutX="132.0" layoutY="188.0" text="Author">
+      <font>
+         <Font name="Arial" size="14.0"/>
+      </font>
+   </Label>
+   <Label layoutX="131.0" layoutY="231.0" text="Likes">
+      <font>
+         <Font name="Arial" size="14.0"/>
+      </font>
+   </Label>
+   <Label layoutX="130.0" layoutY="273.0" text="Shares">
+      <font>
+         <Font name="Arial" size="14.0"/>
+      </font>
+   </Label>
+   <Label layoutX="131.0" layoutY="313.0" text="Date">
+      <font>
+         <Font name="Arial" size="14.0"/>
+      </font>
+   </Label>
+   <TextField fx:id="txtPostId" layoutX="210.0" layoutY="63.0" prefHeight="30.0" prefWidth="180.0"
+              promptText="Enter post id">
+      <font>
+         <Font name="Arial" size="14.0"/>
+      </font>
+   </TextField>
+   <TextField fx:id="txtAuthor" layoutX="210.0" layoutY="181.0" prefHeight="30.0" prefWidth="180.0"
+              promptText="Enter author name">
+      <font>
+         <Font name="Arial" size="14.0"/>
+      </font>
+   </TextField>
+   <TextField fx:id="txtNumLikes" layoutX="210.0" layoutY="224.0" prefHeight="30.0" prefWidth="180.0"
+              promptText="Enter number of likes">
+      <font>
+         <Font name="Arial" size="14.0"/>
+      </font>
+   </TextField>
+   <TextField fx:id="txtNumShares" layoutX="210.0" layoutY="266.0" prefHeight="30.0" prefWidth="180.0"
+              promptText="Enter number of shares">
+      <font>
+         <Font name="Arial" size="14.0"/>
+      </font>
+   </TextField>
+   <TextArea fx:id="txtContent" layoutX="210.0" layoutY="104.0" maxHeight="65.0" maxWidth="180.0" prefHeight="65.0"
+             prefWidth="180.0" promptText="Enter post content">
+      <font>
+         <Font name="Arial" size="14.0"/>
+      </font>
+   </TextArea>
+   <DatePicker fx:id="txtDate" layoutX="210.0" layoutY="306.0" prefHeight="30.0" prefWidth="180.0"
+               promptText="Select date"/>
+   <Label layoutX="131.0" layoutY="355.0" text="Datetime">
+      <font>
+         <Font name="Arial" size="14.0"/>
+      </font>
+   </Label>
+   <ComboBox fx:id="cmbHour" layoutX="210.0" layoutY="349.0" prefHeight="30.0" prefWidth="80.0" promptText="Hour"/>
+   <ComboBox fx:id="cmbMinute" layoutX="312.0" layoutY="349.0" prefHeight="30.0" prefWidth="80.0" promptText="Minute"/>
+   <Button focusTraversable="false" layoutX="211.0" layoutY="397.0" mnemonicParsing="false" onMouseClicked="#btnAddPostClicked" prefHeight="30.0"
+           prefWidth="180.0" text="Add Post">
+      <font>
+         <Font size="14.0"/>
+      </font>
+   </Button>
+</Pane>
